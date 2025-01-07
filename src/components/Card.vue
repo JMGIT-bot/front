@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 
 // `title` prop을 사용하여 이미지 경로를 동적으로 설정
 const props = defineProps<{
@@ -31,10 +31,13 @@ const props = defineProps<{
 // `import.meta.glob`을 통해 이미지를 동적으로 가져올 때, 각 이미지의 타입을 명시적으로 지정
 const images = import.meta.glob<string>("@/assets/images/*.png", { eager: true });
 
-// title에 맞는 이미지 경로를 가져오기
-const imagePath = (images[`/src/assets/images/${props.title.toLowerCase()}.png`] as unknown as { default: string })
-    .default;
+// computed로 이미지 경로를 동적으로 설정
+const imagePath = computed(() => {
+    const image = images[`/src/assets/images/${props.title.toLowerCase()}.png`];
+    return image ? (image as any).default : "";
+});
 </script>
+
 <style scoped>
 /* Aspect ratio for square image */
 .aspect-w-1 {
