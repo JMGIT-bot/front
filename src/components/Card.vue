@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 
 // `title` prop을 사용하여 이미지 경로를 동적으로 설정
 const props = defineProps<{
