@@ -3,6 +3,7 @@
         <div class="flex flex-wrap justify-center gap-6">
             <!-- Draggable 리스트 -->
             <Draggable
+                @change="onChange"
                 v-model="cardList"
                 :group="'cards'"
                 :animation="200"
@@ -21,11 +22,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 import Draggable from "vuedraggable";
 import Card from "@/components/Card.vue"; // Card 컴포넌트
-
-const cardList = ref([
+onMounted(() => {
+    fetchData();
+});
+const cardList = ref<string[]>([
     "JAVA",
     "Vue",
     "React",
@@ -38,6 +42,15 @@ const cardList = ref([
     "ORACLE",
     "PostgreSQL",
 ]);
+
+const fetchData = async () => {
+    const response = await axios.get<any>("/api/meta"); // 타입 지정
+};
+const onChange = async () => {
+    const response = await axios.put<any>("/api/meta", cardList.value);
+    cardList.value = response.data;
+};
+//
 </script>
 
 <style>
