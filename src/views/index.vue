@@ -27,15 +27,15 @@ import axios from "axios";
 import Draggable from "vuedraggable";
 import Card from "@/components/Card.vue"; // Card 컴포넌트
 onMounted(() => {
-    const apiUrl = "https://10.112.59.113:8080/api/meta";
-    axios
-        .get(apiUrl)
-        .then((response) => {
-            console.log(response.data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    // const apiUrl = "https://10.112.59.113:8080/api/meta";
+    // axios
+    //     .get(apiUrl)
+    //     .then((response) => {
+    //         console.log(response.data);
+    //     })
+    //     .catch((error) => {
+    //         console.error(error);
+    //     });
     fetchData();
 });
 const cardList = ref<string[]>([
