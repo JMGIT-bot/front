@@ -1,0 +1,1 @@
+import{_ as s,c as o,a as t,o as a}from"./index-ClLVUjTB.js";const n={};function r(c,e){return a(),o("div",null,e[0]||(e[0]=[t("h2",{class:"text-2xl font-bold"},"VUE Page",-1),t("p",null,"This is the VUE Page!",-1)]))}const f=s(n,[["render",r]]);export{f as default};
