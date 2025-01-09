@@ -1,0 +1,1 @@
+import{_ as a,c as s,a as t,o}from"./index-C1MrJMDy.js";const n={};function r(c,e){return o(),s("div",null,e[0]||(e[0]=[t("h2",{class:"text-2xl font-bold"},"JAVA Page",-1),t("p",null,"This is the JAVA Page!",-1)]))}const f=a(n,[["render",r]]);export{f as default};
