@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
-import { API_URL } from "./src/constants/common";
+import { API_URL, LOCAL_API_URL } from "./src/constants/common";
 import vue from "@vitejs/plugin-vue";
 
 // https://vite.dev/config/
@@ -15,8 +15,10 @@ export default defineConfig({
         proxy: {
             "/api": {
                 // '/api'로 시작하는 모든 요청을 프록시
+                // target: API_URL, // 백엔드 서버 주소
                 target: API_URL, // 백엔드 서버 주소
                 changeOrigin: true, // CORS 문제 해결에 중요
+                secure: false, // self-signed certificate를 무시하려면 `secure: false` 설정
             },
             // 다른 프록시 설정 추가 가능
         },
