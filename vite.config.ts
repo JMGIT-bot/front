@@ -14,11 +14,10 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                // '/api'로 시작하는 모든 요청을 프록시
-                // target: API_URL, // 백엔드 서버 주소
-                target: API_URL, // 백엔드 서버 주소
-                changeOrigin: true, // CORS 문제 해결에 중요
-                secure: false, // self-signed certificate를 무시하려면 `secure: false` 설정
+                target: "https://10.112.59.113:8080", // 로컬 서버 주소
+                changeOrigin: true,
+                secure: false, // 자체 서명된 인증서가 있는 경우 false로 설정
+                rewrite: (path) => path.replace(/^\/api/, ""), // /api 경로 제거 (필요시)
             },
         },
     },
