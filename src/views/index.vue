@@ -27,7 +27,6 @@ import axios from "axios";
 import Draggable from "vuedraggable";
 import Card from "@/components/Card.vue"; // Card 컴포넌트
 onMounted(() => {
-    fetchData();
     const apiUrl = "https://10.112.59.113:8080/api/meta";
     axios
         .get(apiUrl)
@@ -37,6 +36,7 @@ onMounted(() => {
         .catch((error) => {
             console.error(error);
         });
+    fetchData();
 });
 const cardList = ref<string[]>([
     "JAVA",
@@ -51,6 +51,7 @@ const cardList = ref<string[]>([
     "ORACLE",
     "PostgreSQL",
     "Typescript",
+    "Linux",
 ]);
 
 const fetchData = async () => {
