@@ -52,6 +52,7 @@ const cardList = ref<string[]>([
     "PostgreSQL",
     "Typescript",
     "Linux",
+    "Python",
 ]);
 
 const fetchData = async () => {

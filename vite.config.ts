@@ -14,10 +14,9 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                target: "https://10.112.59.113:8080", // 로컬 서버 주소
+                target: API_URL, // 로컬 서버 주소
                 changeOrigin: true,
                 secure: false, // 자체 서명된 인증서가 있는 경우 false로 설정
-                rewrite: (path) => path.replace(/^\/api/, ""), // /api 경로 제거 (필요시)
             },
         },
     },
