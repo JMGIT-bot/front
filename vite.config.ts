@@ -6,7 +6,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: "/front/",
+    base: "/",
     css: {
         postcss: "./postcss.config.cjs", // 명시적으로 설정 경로를 지정
     },
@@ -30,13 +30,13 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 // Set the location for JS files in the 'assets/js' folder
-                entryFileNames: "assets/js/[name]-[hash].js",
-                chunkFileNames: "assets/js/[name]-[hash].js",
+                entryFileNames: "js/[name]-[hash].js",
+                chunkFileNames: "js/[name]-[hash].js",
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name && assetInfo.name.endsWith(".css")) {
-                        return "assets/css/[name]-[hash][extname]"; // CSS files in the 'assets/css' folder
+                        return "css/[name]-[hash][extname]"; // CSS files in the 'assets/css' folder
                     }
-                    return "assets/images/[name]-[hash][extname]"; // Images in the 'assets/images' folder
+                    return "images/[name]-[hash][extname]"; // Images in the 'assets/images' folder
                 },
             },
         },
