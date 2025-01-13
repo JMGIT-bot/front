@@ -26,7 +26,6 @@ export default defineConfig({
         },
     },
     build: {
-        assetsDir: "assets/images", // Set images to be in 'assets/images' folder
         rollupOptions: {
             output: {
                 // Set the location for JS files in the 'assets/js' folder
